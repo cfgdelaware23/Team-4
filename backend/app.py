@@ -18,7 +18,6 @@ def home():
 @app.route("/sign-up",methods=['GET','POST'])
 def sign_up():
     user = request.get_json()
-
     print("Received JSON: %s", json.dumps(user, indent=4))
     #user = []
     #User.register(user)
@@ -31,6 +30,7 @@ def login():
     user = []
     User.login(user)
     return "Logged in"
+
 
 
 #run the app
