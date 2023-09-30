@@ -280,7 +280,6 @@ function SignUp() {
         formData.append('image', selectedImage); // Append the image file
         formData.append('user', JSON.stringify(user)); // Convert user data to JSON and append
 
-
         axios.post('/sign-up', formData, {
             headers: {
               'Content-Type': 'multipart/form-data', // Set the Content-Type header
