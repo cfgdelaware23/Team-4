@@ -62,20 +62,20 @@ class User:
         pass
 
 
-User.register({
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "phoneNum": "1334567890",
-    "email": "janedoe@tst.com",
-    "password": "",
-    "confirmPassword": "",
-    "street": "Hicks Way",
-    "city": "Amherst",
-    "state": "MA",
-    "zipCode": "01003",
-    "annualIncome": 1_000_000,
-    "familySize": 0
-})
+# User.register({
+#     "firstName": "Jane",
+#     "lastName": "Doe",
+#     "phoneNum": "1334567890",
+#     "email": "janedoe@tst.com",
+#     "password": "",
+#     "confirmPassword": "",
+#     "street": "Hicks Way",
+#     "city": "Amherst",
+#     "state": "MA",
+#     "zipCode": "01003",
+#     "annualIncome": 1_000_000,
+#     "familySize": 0
+# })
 
 
     
