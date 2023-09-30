@@ -13,9 +13,9 @@ def home():
     return "Hello!"
 
 #for sign-up page
-@app.route("/sign-up")
+@app.route("/sign-up",)
 def sign_up():
-    User.register("hey")
+    User.register()
     return "Enter your information here"
 
 #login page
@@ -23,6 +23,7 @@ def sign_up():
 def login():
     User.login("hey")
     return "Logged in"
+
 
 
 #run the app
