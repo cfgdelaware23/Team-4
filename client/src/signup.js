@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { React,useState, useCallback } from "react";
 import { range } from "./utils/util";
 import axios from 'axios';
 
@@ -22,6 +22,15 @@ function SignUp() {
         familySize: 0
     });
 
+    //variable to handle selected image
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    //function to change image when needed
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setSelectedImage(file);
+    };
+
     const renderFormPage = useCallback(() => {
         switch(formPage) {
 
@@ -29,6 +38,13 @@ function SignUp() {
                 return (
                     <>
                         <div className="flex flex-col justify-center items-center w-full h-full gap-10">
+                        <label className="text-ketchup text-xl font-bold self-start">Image</label>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                className="w-full bg-white px-4 py-2 rounded-xl"
+                                onChange={handleImageChange}
+                            />
 
                             {/* user name input */}
                             <div className="flex flex-row w-full h-24 justify-center items-center gap-5">
@@ -260,9 +276,14 @@ function SignUp() {
     }, [formPage]);
     
     const sendUserToFlask = () => {
-        axios.post('/sign-up', user, {
+        const formData = new FormData();
+        formData.append('image', selectedImage); // Append the image file
+        formData.append('user', JSON.stringify(user)); // Convert user data to JSON and append
+
+
+        axios.post('/sign-up', formData, {
             headers: {
-              'Content-Type': 'application/json', // Set the Content-Type header
+              'Content-Type': 'multipart/form-data', // Set the Content-Type header
             },
           })
             .then((response) => {

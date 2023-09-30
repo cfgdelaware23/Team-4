@@ -4,7 +4,7 @@ connection = psycopg2.connect(
         host="localhost",
         database="postgres",
         user="postgres",
-        password=""
+        password="lh%4SWwB$cV4Xw"
     )
 
 connection.autocommit = True
