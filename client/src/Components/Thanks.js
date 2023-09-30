@@ -1,5 +1,6 @@
 import React from "react";
 import Confetti from "react-confetti"
+
 function Thanks(){
     return(
         <>
