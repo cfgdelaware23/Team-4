@@ -63,8 +63,6 @@ class User:
         #         """
         pass
 
-
-
 # User.register({
 #     "firstName": "Jane",
 #     "lastName": "Doe",
@@ -79,6 +77,3 @@ class User:
 #     "annualIncome": 1_000_000,
 #     "familySize": 0
 # })
-
-
-    
