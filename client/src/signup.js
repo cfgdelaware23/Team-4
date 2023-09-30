@@ -19,7 +19,7 @@ function SignUp() {
         state: "",
         zipCode: "",
         waysOfCommute: "",
-        familySize: 0
+        familySize: ""
     });
 
     const renderFormPage = useCallback(() => {
