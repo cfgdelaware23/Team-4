@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { range } from "./utils/util";
+import axios from 'axios';
 
 function SignUp() {
     const FORM_PAGE_COUNT = 4;
@@ -258,6 +259,16 @@ function SignUp() {
         }
     }, [formPage]);
     
+    const sendUserToFlask = () => {
+        axios.post('/sign-up', user)
+            .then((response) => {
+                console.log(response.data.message);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+    }
+
     const PageIndexMarker = ({ id }) => {
         return (
             <>
@@ -318,7 +329,7 @@ function SignUp() {
                             ) : (
                                 <button 
                                     className= "w-1/3 h-16 bg-ketchup rounded-xl"
-                                    onClick={() => {}}
+                                    onClick={() => {sendUserToFlask}}
                                 >
                                     <h1 className="text-white text-3xl font-bold">submit</h1>
                                 </button>
