@@ -7,7 +7,7 @@ import re
 pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
 
 # Read image from which text needs to be extracted
-img = cv2.imread("backend/image.jpeg")
+img = cv2.imread("./uploads/image.jpg")
 
 # Convert the image to gray scale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
