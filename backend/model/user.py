@@ -17,11 +17,11 @@ class User:
     }
 
     @staticmethod
-    def register(self, user):
+    def register(user):
         pass
 
     @staticmethod
-    def login(self, user):
+    def login(user):
         pass
 
     

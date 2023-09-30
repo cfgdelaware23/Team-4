@@ -13,15 +13,17 @@ def home():
     return "Hello!"
 
 #for sign-up page
-@app.route("/sign-up")
+@app.route("/sign-up",methods=['GET','POST'])
 def sign_up():
-    User.register("hey")
+    user = []
+    User.register(user)
     return "Enter your information here"
 
 #login page
-@app.route("/login")
+@app.route("/login",methods=['GET','POST'])
 def login():
-    User.login("hey")
+    user = []
+    User.login(user)
     return "Logged in"
 
 
