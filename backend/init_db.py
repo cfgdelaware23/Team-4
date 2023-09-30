@@ -1,11 +1,13 @@
 import psycopg2
 
 def setup():
+    # database = mydb or postgres
+    # password = test123
     connection = psycopg2.connect(
         host="localhost",
-        database="mydb",
+        database="",
         user="postgres",
-        password="test123"
+        password=""
     )
 
     connection.autocommit = True
