@@ -1,8 +1,10 @@
 import psycopg2
 
+# database = mydb or postgres
+# password = test123
 connection = psycopg2.connect(
         host="localhost",
-        database="postgres",
+        database="",
         user="postgres",
         password=""
     )
