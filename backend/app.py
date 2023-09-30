@@ -15,12 +15,12 @@ def home():
     return "Hello!"
 
 #for sign-up page
-@app.route("/sign-up",methods=['GET','POST'])
+@app.route("/sign-up",methods=['POST'])
 def sign_up():
     user = request.get_json()
     print("Received JSON: %s", json.dumps(user, indent=4))
     #user = []
-    #User.register(user)
+    User.register(user)
     return jsonify({'message': 'Data received successfully'})
     #return "Enter your information here"
 
