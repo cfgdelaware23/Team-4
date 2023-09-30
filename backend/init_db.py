@@ -54,7 +54,10 @@ def setup():
             PRIMARY KEY(id)
         );
         CREATE TABLE IF NOT EXISTS items(
-            -- ... rest of your table definition ...
+            item_id SERIAL PRIMARY KEY,
+            item_url text,
+            name VARCHAR(255) NOT NULL,
+            price DECIMAL NOT NULL
         );
     '''
 
