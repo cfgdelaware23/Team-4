@@ -1,36 +1,23 @@
 from flask import Flask, render_template, request, jsonify
 #for postgres
-#import psycopg2
-#from users.donotpush import pass
+import psycopg2
+#python file which initializes postgresql database
+import init_db
 
 app = Flask(__name__)
 
+#home route
 @app.route('/')
 def home():
-
-    # conn = psycopg2.connect(
-    #     database="postgres", user='postgres', password="password", host='127.0.0.1', port= '5432'
-    # )
-    # conn.autocommit = True
-
-    # #Creating a cursor object using the cursor() method
-    # cursor = conn.cursor()
-
-    # #Preparing query to create a database
-    # sql = '''CREATE database mydb''';
-
-    # #  Creating a database
-    # cursor.execute(sql)
-    # print("Database created successfully........")
-
-    # #Closing the connection
-    # conn.close()
-
     return "Hello!"
 
+#for sign-up page
 @app.route("/sign-up")
 def sign_up():
     return "Enter your information here"
 
+#run the app
 if __name__ == '__main__':
     app.run(debug=True)
+    init_db.set_up()
+
