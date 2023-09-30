@@ -6,6 +6,21 @@ function SignUp() {
     const [formPage, setFormPage] = useState(0);
     const pages = range(0, FORM_PAGE_COUNT);
 
+    const [user, setUser] = useState({
+        firstName: "",
+        lastName: "",
+        phoneNum: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        street: "",
+        city: "",
+        state: "",
+        zipCode: "",
+        waysOfCommute: "",
+        familySize: 0
+    });
+
     const renderFormPage = useCallback(() => {
         switch(formPage) {
 
@@ -22,7 +37,14 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">first name</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.firstName}
+                                    onChange={(e) => {
+                                        user.firstName = e.target.value;
+                                        setUser(user => ({...user}));
+                                        console.log(user);
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -31,7 +53,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">last name</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.lastName}
+                                    onChange={(e) => {
+                                        user.lastName = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -42,7 +70,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">phone number</label>
                                 <input
                                     type="tel"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.phoneNum}
+                                    onChange={(e) => {
+                                        user.phoneNum = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -60,7 +94,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">email</label>
                                 <input
                                     type="email"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.email}
+                                    onChange={(e) => {
+                                        user.email = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -69,7 +109,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">password</label>
                                 <input
                                     type="password"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.password}
+                                    onChange={(e) => {
+                                        user.password = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -78,7 +124,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">confirm password</label>
                                 <input
                                     type="password"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.confirmPassword}
+                                    onChange={(e) => {
+                                        user.confirmPassword = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -96,7 +148,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">street</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.street}
+                                    onChange={(e) => {
+                                        user.street = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -105,7 +163,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">city</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.city}
+                                    onChange={(e) => {
+                                        user.city = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -117,7 +181,13 @@ function SignUp() {
                                     <label className="text-ketchup text-xl font-bold self-start">state</label>
                                     <input
                                         type="text"
-                                        className="w-full bg-white px-4 py-7 rounded-xl">
+                                        className="w-full bg-white px-4 py-7 rounded-xl"
+                                        value={user.state}
+                                        onChange={(e) => {
+                                            user.state = e.target.value;
+                                            setUser(user => ({...user}));
+                                        }}
+                                    >
                                     </input>
                                 </div>
 
@@ -126,7 +196,13 @@ function SignUp() {
                                     <label className="text-ketchup text-xl font-bold self-start">zip code</label>
                                     <input
                                         type="text"
-                                        className="w-full bg-white px-4 py-7 rounded-xl">
+                                        className="w-full bg-white px-4 py-7 rounded-xl"
+                                        value={user.zipCode}
+                                        onChange={(e) => {
+                                            user.zipCode = e.target.value;
+                                            setUser(user => ({...user}));
+                                        }}
+                                    >
                                     </input>
                                 </div>
 
@@ -146,7 +222,13 @@ function SignUp() {
                                 <label className="text-ketchup text-xl font-bold self-start">ways of commute</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl">
+                                    className="w-full bg-white px-4 py-7 rounded-xl"
+                                    value={user.waysOfCommute}
+                                    onChange={(e) => {
+                                        user.waysOfCommute = e.target.value;
+                                        setUser(user => ({...user}));
+                                    }}
+                                >
                                 </input>
                             </div>
 
@@ -158,7 +240,13 @@ function SignUp() {
                                     <label className="text-ketchup text-xl font-bold">family size</label>
                                     <input
                                         type="text"
-                                        className="w-1/2 bg-white px-4 py-7 rounded-xl">
+                                        className="w-1/2 bg-white px-4 py-7 rounded-xl"
+                                        value={user.familySize}
+                                        onChange={(e) => {
+                                            user.familySize = e.target.value;
+                                            setUser(user => ({...user}));
+                                        }}
+                                    >
                                     </input>
                                 </div>
 
@@ -197,9 +285,9 @@ function SignUp() {
             {/* form for user input */}
             <div className="flex flex-col justify-between items-center w-1/2 h-full bg-tan px-16 py-14 gap-5">
 
-                <div className="w-full h-full p-4">
+                <form className="w-full h-full p-4">
                     {renderFormPage()}
-                </div>
+                </form>
 
                 <div className="flex flex-col w-full h-16 justify-between items-center gap-5">
 
