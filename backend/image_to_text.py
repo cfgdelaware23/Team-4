@@ -7,7 +7,7 @@ import re
 pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
 
 # Read image from which text needs to be extracted
-img = cv2.imread("image.jpeg")
+img = cv2.imread("backend/image.jpeg")
 
 # Convert the image to gray scale
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)    
@@ -31,7 +31,7 @@ first_name_match = re.search(r'prsrnane ra\s+(\w+)', text, re.IGNORECASE)
 last_name_match = re.search(r'UASTNAME\s+(\w+)', text, re.IGNORECASE)
 dob_match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', text, re.IGNORECASE)
 
-# Open the file in append mode
+# Open the file in writing mode
 with open("recognized.txt", "w") as file:
     if first_name_match:
         first_name = first_name_match.group(1)
