@@ -15,7 +15,7 @@ function Shop() {
 
     async function fetchData() {
         try {
-          const response = await axios.get('https://api.example.com/data');
+          const response = await axios.get('/inventory');
           console.log(response.data);
 
           items = response.data['items'];
