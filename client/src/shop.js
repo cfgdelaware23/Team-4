@@ -11,12 +11,18 @@ function Shop() {
             price: "2.00",
         }
     ]);
-    const items = [{
-        id: 0,
-        name: "Apple",
-        price: "2.00",
-        image: ""
-    }];
+    const items = [];
+
+    async function fetchData() {
+        try {
+          const response = await axios.get('https://api.example.com/data');
+          console.log(response.data);
+
+          items = response.data['items'];
+        } catch (error) {
+          console.error(error);
+        }
+      }
 
     function calculateTotalPrice() {
         let totalPrice = 0;
@@ -25,7 +31,7 @@ function Shop() {
           totalPrice += parseFloat(item.price * item.quantity);
         }
         return totalPrice.toFixed(2); // Return the total price with two decimal places
-      }
+    }
 
     const ItemCard = ({ id, name, price, image }) => {
         return (
