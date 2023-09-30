@@ -2,6 +2,7 @@
 module.exports = {
   content: [
 <<<<<<< HEAD
+<<<<<<< HEAD
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
@@ -16,6 +17,8 @@ module.exports = {
   plugins: [],
 }
 =======
+=======
+>>>>>>> branch
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
@@ -29,4 +32,3 @@ module.exports = {
   },
   plugins: [],
 }
->>>>>>> home
