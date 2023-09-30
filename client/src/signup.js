@@ -329,7 +329,7 @@ function SignUp() {
                             ) : (
                                 <button 
                                     className= "w-1/3 h-16 bg-ketchup rounded-xl"
-                                    onClick={() => {sendUserToFlask}}
+                                    onClick={sendUserToFlask}
                                 >
                                     <h1 className="text-white text-3xl font-bold">submit</h1>
                                 </button>
