@@ -18,7 +18,7 @@ class User:
     }
 
     @staticmethod
-    def register(user)
+    def register(user):
         cursor = connection.cursor()
         query = """
                 INSERT INTO users (
