@@ -13,16 +13,14 @@ def home():
     return "Hello!"
 
 #for sign-up page
-<<<<<<< HEAD
-@app.route("/sign-up",)
-def sign_up():
-    User.register()
-=======
 @app.route("/sign-up",methods=['GET','POST'])
 def sign_up():
     user = []
-    User.register(user)
->>>>>>> 10124a4ec54dc02b7c91274e84456fbff17c67c2
+    try:
+        print(User.register(user))
+        return {"message": "success"}
+    except:
+        pass
     return "Enter your information here"
 
 #login page
