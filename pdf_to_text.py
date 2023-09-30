@@ -2,20 +2,24 @@ import pdf2image
 import pytesseract
 import re
 
+# converts pdf pages into images
 def uploaded_pdf_to_text(uploaded_pdf_file):
     def convert_pdf_to_image(pdf_file):
         return pdf2image.convert_from_path(pdf_file)
-    
+        
+    # converts image to text
     def convert_image_to_text(image_to_be_converted):
         text_to_be_parsed = pytesseract.image_to_string(image_to_be_converted)
         return text_to_be_parsed
 
+    # extracts information from text for parsing
     def extract_information(text):
         annual_income = None
         monthly_income = None
         first_name = None
         last_name = None
-
+        
+        # Uses regular expression to grab income and names
         income_pattern = r'(Annual|Monthly) Income: \$(\d+,\d+)'
         name_pattern = r"Employee's first name and initial: ([A-Za-z]+)\s+Last Name: ([A-Za-z]+)"
 
@@ -27,7 +31,6 @@ def uploaded_pdf_to_text(uploaded_pdf_file):
             elif income_type == 'Monthly':
                 monthly_income = income_value
 
-      
         name_match = re.search(name_pattern, text)
         if name_match:
             first_name, last_name = name_match.groups()
@@ -38,7 +41,7 @@ def uploaded_pdf_to_text(uploaded_pdf_file):
             'First Name': first_name,
             'Last Name': last_name
         }
-
+    # Utilizes convert_pdf_to_image() and convert_image_to_text() to convert pdf to text
     def convert_pdf_to_text(attached_file):
         images = convert_pdf_to_image(attached_file)
         extracted_text = ""
