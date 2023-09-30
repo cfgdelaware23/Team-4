@@ -4,6 +4,7 @@ import psycopg2
 #python file which initializes postgresql database
 #import init_db
 from model.user import User
+from model.inventory import Item
 #used for printing out responses to API
 import json
 
@@ -35,7 +36,22 @@ def login():
     User.login(user)
     return "Logged in"
 
-
+@app.route('/inventory', methods=['GET', 'POST'])
+def manage_items():
+    if request.method == 'POST':
+        items_data = request.get_json()
+        try:
+            new_items = [Item.add_item(item) for item in items_data]
+            return jsonify({'message': f'{len(new_items)} items added successfully', 'items': new_items})
+        except Exception as e:
+            return {"error": str(e)}
+    elif request.method == 'GET':
+        try:
+            # Assuming you have a method to fetch all items from the database
+            items = Item.get_all_items()
+            return jsonify({'items': items})
+        except Exception as e:
+            return {"error": str(e)}
 
 #run the app
 if __name__ == '__main__':
