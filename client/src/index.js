@@ -11,7 +11,7 @@ import reportWebVitals from './reportWebVitals';
 import Root from "./routes/root";
 import SignUp from './signup';
 import Thanks from './Components/Thanks';
-
+import Shop from './shop';
 
 
 const router = createBrowserRouter([
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
     path: "/thank",
     element: <Thanks />
   },
+  {
+    path: "/shop",
+    element: < Shop/>
+  }
 
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
