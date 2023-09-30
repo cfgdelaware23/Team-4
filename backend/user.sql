@@ -8,8 +8,8 @@ CREATE TABLE user(
     street varchar(255) NOT NULL,
     city varchar(255) NOT NULL,
     state varchar(2) NOT NULL,
-    zip_code TINYINT NOT NULL,
+    zip_code VARCHAR(5) NOT NULL,
     annual_income BIGINT NOT NULL,
-    family_size TINYINT NOT NULL,
+    family_size SMALLINT NOT NULL,
     PRIMARY KEY(id)
-) 
+);
