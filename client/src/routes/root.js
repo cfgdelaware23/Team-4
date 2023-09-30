@@ -1,9 +1,7 @@
 
 import{Link} from "react-router-dom"
 export default function Root(){
-    function clicked(){
-        alert("You clicked me")
-    }
+    
   
         return (
       
@@ -19,12 +17,17 @@ export default function Root(){
      
         
         <nav>
-        <button onClick = {clicked} className="w-1/2 h 1/2 rounded-xl border-4 border-black border-solid
+        <button className="w-1/2 h 1/2 rounded-xl border-4 border-black border-solid
             text-tan bg-ketchup font-bold text-4xl gap-right-4"><Link to = "/sign">Signup </Link></button>
         
-        <button onClick = {clicked} className="w-1/2 h 1/3 rounded-xl border-4 border-black border-solid
+        <button  className="w-1/2 h 1/3 rounded-xl border-4 border-black border-solid
             text-tan bg-ketchup font-bold text-4xl">       Login
         </button>
+
+        <button className="w-1/2 h 1/3 rounded-xl border-4 border-black border-solid
+            text-tan bg-ketchup font-bold text-4xl"><Link to = "/shop">  Shop   </Link>     
+        </button>
+        
         
          
         </nav>
