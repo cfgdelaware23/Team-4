@@ -57,11 +57,20 @@ class User:
 
     @staticmethod
     def login( user):
-        # cursor = connection.cursor()
-        # query = """
-        #             SELECT * FROM users WHERE
-        #         """
-        pass
+        cursor = connection.cursor()
+        query = """
+                    SELECT * FROM users
+                    WHERE (phone_number = %s AND password = %s)
+                """
+        cursor.execute(query, (user["phoneNum"], user["password"]))
+        new_user = cursor.fetchone()
+        connection.commit()
+        cursor.close()
+        if not new_user:
+            return {"message": "incorrect username or password"}
+        else:
+            return {"message": "login successful"}
+        
 
 # User.register({
 #     "firstName": "Jane",
