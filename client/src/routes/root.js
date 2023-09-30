@@ -21,7 +21,7 @@ export default function Root(){
             text-tan bg-ketchup font-bold text-4xl gap-right-4"><Link to = "/sign">Signup </Link></button>
         
         <button  className="w-1/2 h 1/3 rounded-xl border-4 border-black border-solid
-            text-tan bg-ketchup font-bold text-4xl">       Login
+            text-tan bg-ketchup font-bold text-4xl"><Link to = "/login">  Login </Link> 
         </button>
 
         <button className="w-1/2 h 1/3 rounded-xl border-4 border-black border-solid

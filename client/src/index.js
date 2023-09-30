@@ -12,6 +12,7 @@ import Root from "./routes/root";
 import SignUp from './signup';
 import Thanks from './Components/Thanks';
 import Shop from './shop';
+import Login from './Components/Login';
 
 
 const router = createBrowserRouter([
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: < Shop/>
-  }
+  },
+  {
+    path: "/login",
+    element: < Login/>
+  },
 
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
