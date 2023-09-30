@@ -1,18 +1,38 @@
-from dbconnect import connection
+import psycopg2
 
 def setup():
+    connection = psycopg2.connect(
+        host="localhost",
+        database="mydb",
+        user="postgres",
+        password="test123"
+    )
+
+    connection.autocommit = True
     # create a cursor to execute sql database commands
     cursor = connection.cursor()
 
+    # Check if mydb database exists
+    cursor.execute("SELECT 1 FROM pg_database WHERE datname = 'mydb';")
+    db_exists = cursor.fetchone() is not None
 
-    # delete preexisting mydb if it conflicts with current mydb
-    cursor.execute('''DROP DATABASE IF EXISTS mydb''')
+    if not db_exists:
+        # Creating a database
+        cursor.execute('CREATE DATABASE mydb;')
 
-    # Creating a database
-    cursor.execute('CREATE database mydb;')
+    # Close connection to default postgres database
+    cursor.close()
+    connection.close()
 
-    # making user table within larer database
-    cursor.execute('DROP TABLE IF EXISTS users;')
+    # Connect to mydb database
+    connection = psycopg2.connect(
+        host="localhost",
+        database="mydb",
+        user="postgres",
+        password=""
+    )
+    connection.autocommit = True
+    cursor = connection.cursor()
 
     # combining the create table command into one string
     create_table = '''
@@ -31,15 +51,19 @@ def setup():
             family_size SMALLINT NOT NULL,
             PRIMARY KEY(id)
         );
+        CREATE TABLE IF NOT EXISTS items(
+            -- ... rest of your table definition ...
+        );
     '''
 
     # create user table
     cursor.execute(create_table)
 
     print("Database created successfully........")
-    print("User table created")
+    print("Tables created successfully..........")
 
     # Closing the connection
+    cursor.close()
     connection.close()
 
 setup()

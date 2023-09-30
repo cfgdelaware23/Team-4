@@ -2,9 +2,9 @@ import psycopg2
 
 connection = psycopg2.connect(
         host="localhost",
-        database="postgres",
+        database="mydb",
         user="postgres",
-        password=""
+        password="test123"
     )
 
 connection.autocommit = True
