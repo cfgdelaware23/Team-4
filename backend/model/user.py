@@ -19,7 +19,6 @@ class User:
 
     @staticmethod
     def register(user):
-        print(user)
         cursor = connection.cursor()
         query = """
                 INSERT INTO users (
@@ -36,7 +35,7 @@ class User:
                     family_size
                 ) VALUES ( 
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-                )
+                ) RETURNING *;
                 """
         cursor.execute(query, (
             user["firstName"],
@@ -54,12 +53,16 @@ class User:
         new_user = cursor.fetchone()
         connection.commit()
         cursor.close()
-        connection.close()
         return new_user
 
     @staticmethod
     def login( user):
+        # cursor = connection.cursor()
+        # query = """
+        #             SELECT * FROM users WHERE
+        #         """
         pass
+
 
 
 # User.register({

@@ -20,8 +20,12 @@ def sign_up():
     user = request.get_json()
     print("Received JSON: %s", json.dumps(user, indent=4))
     #user = []
-    User.register(user)
-    return jsonify({'message': 'Data received successfully'})
+    try:
+        new_user = User.register(user)
+        return jsonify({'message': 'Data received successfully', "user": new_user})
+    except Exception as e:
+        return {"error": str(e)}
+        
     #return "Enter your information here"
 
 #login page
