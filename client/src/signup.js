@@ -33,36 +33,36 @@ function SignUp() {
                             {/* user name input */}
                             <div className="flex flex-row w-full h-24 justify-center items-center gap-5">
 
-                            {/* first name */}
-                            <div className="flex flex-col w-1/2 gap-2">
-                                <label className="text-ketchup text-xl font-bold self-start">first name</label>
-                                <input
-                                    type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl"
-                                    value={user.firstName}
-                                    onChange={(e) => {
-                                        user.firstName = e.target.value;
-                                        setUser(user => ({...user}));
-                                        console.log(user);
-                                    }}
-                                >
-                                </input>
-                            </div>
+                                {/* first name */}
+                                <div className="flex flex-col w-1/2 gap-2">
+                                    <label className="text-ketchup text-xl font-bold self-start">first name</label>
+                                    <input
+                                        type="text"
+                                        className="w-full bg-white px-4 py-7 rounded-xl"
+                                        value={user.firstName}
+                                        onChange={(e) => {
+                                            user.firstName = e.target.value;
+                                            setUser(user => ({...user, firstName: e.target.value}));
+                                            console.log(user);
+                                        }}
+                                    >
+                                    </input>
+                                </div>
 
-                            {/* last name */}
-                            <div className="flex flex-col w-1/2 gap-2">
-                                <label className="text-ketchup text-xl font-bold self-start">last name</label>
-                                <input
-                                    type="text"
-                                    className="w-full bg-white px-4 py-7 rounded-xl"
-                                    value={user.lastName}
-                                    onChange={(e) => {
-                                        user.lastName = e.target.value;
-                                        setUser(user => ({...user}));
-                                    }}
-                                >
-                                </input>
-                            </div>
+                                {/* last name */}
+                                <div className="flex flex-col w-1/2 gap-2">
+                                    <label className="text-ketchup text-xl font-bold self-start">last name</label>
+                                    <input
+                                        type="text"
+                                        className="w-full bg-white px-4 py-7 rounded-xl"
+                                        value={user.lastName}
+                                        onChange={(e) => {
+                                            user.lastName = e.target.value;
+                                            setUser(user => ({...user, lastName: e.target.value}));
+                                        }}
+                                    >
+                                    </input>
+                                </div>
 
                             </div>
 
@@ -75,7 +75,7 @@ function SignUp() {
                                     value={user.phoneNum}
                                     onChange={(e) => {
                                         user.phoneNum = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, phoneNum: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -99,7 +99,7 @@ function SignUp() {
                                     value={user.email}
                                     onChange={(e) => {
                                         user.email = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, email: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -114,7 +114,7 @@ function SignUp() {
                                     value={user.password}
                                     onChange={(e) => {
                                         user.password = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, password: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -129,7 +129,7 @@ function SignUp() {
                                     value={user.confirmPassword}
                                     onChange={(e) => {
                                         user.confirmPassword = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, confirmPassword: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -153,7 +153,7 @@ function SignUp() {
                                     value={user.street}
                                     onChange={(e) => {
                                         user.street = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, street: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -168,7 +168,7 @@ function SignUp() {
                                     value={user.city}
                                     onChange={(e) => {
                                         user.city = e.target.value;
-                                        setUser(user => ({...user}));
+                                        setUser(user => ({...user, city: e.target.value}));
                                     }}
                                 >
                                 </input>
@@ -186,7 +186,7 @@ function SignUp() {
                                         value={user.state}
                                         onChange={(e) => {
                                             user.state = e.target.value;
-                                            setUser(user => ({...user}));
+                                            setUser(user => ({...user, state: e.target.value}));
                                         }}
                                     >
                                     </input>
@@ -201,7 +201,7 @@ function SignUp() {
                                         value={user.zipCode}
                                         onChange={(e) => {
                                             user.zipCode = e.target.value;
-                                            setUser(user => ({...user}));
+                                            setUser(user => ({...user, zipCode: e.target.value}));
                                         }}
                                     >
                                     </input>
@@ -308,7 +308,10 @@ function SignUp() {
                             formPage != 0 ? (
                                 <button 
                                     className="w-1/3 h-16 bg-ketchup rounded-xl"
-                                    onClick={() => setFormPage((prev) => prev - 1)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setFormPage((prev) => prev - 1);
+                                    }}
                                 >
                                     <h1 className="text-white text-3xl font-bold">back</h1>
                                 </button>
@@ -322,7 +325,10 @@ function SignUp() {
                             formPage != FORM_PAGE_COUNT - 1 ? (
                                 <button 
                                     className= "w-1/3 h-16 bg-ketchup rounded-xl"
-                                    onClick={() => setFormPage((prev) => prev + 1 )}
+                                    onClick={(e) => {
+                                        e.preventDefault(); 
+                                        setFormPage((prev) => prev + 1);
+                                    }}
                                 >
                                     <h1 className="text-white text-3xl font-bold">next</h1>
                                 </button>
