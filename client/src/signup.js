@@ -1,6 +1,7 @@
 import { React,useState, useCallback } from "react";
 import { range } from "./utils/util";
 import axios from 'axios';
+import {Link} from "react-router-dom"
 
 function SignUp() {
     const FORM_PAGE_COUNT = 4;
@@ -360,8 +361,9 @@ function SignUp() {
                                 <button 
                                     className= "w-1/3 h-16 bg-ketchup rounded-xl"
                                     onClick={sendUserToFlask}
-                                >
+                                ><Link to = "/thank">
                                     <h1 className="text-white text-3xl font-bold">submit</h1>
+                                    </Link>
                                 </button>
                             )
                         }
