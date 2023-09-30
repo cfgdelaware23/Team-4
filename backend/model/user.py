@@ -23,9 +23,9 @@ class User:
         cursor = connection.cursor()
         query = """
                     INSERT INTO users (
-                        first_name, 
-                    ["last_name,
-"]                        phone_number,
+                        "first_name, 
+                    last_name,
+                          phone_number,
                         email,
                         password,              
                         confirmPassword,
