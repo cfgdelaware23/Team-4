@@ -59,12 +59,3 @@ def uploaded_pdf_to_text(uploaded_pdf_file):
                 f.write(f"{key}: {value}\n")
 
     convert_pdf_to_text(uploaded_pdf_file)
-
-
-  
-# Optimized uploaded_pdf_to_text
-# def to_text(attached_pdf):
-#   final_text = PyPDF2.PdfReader(attached_file)
-#   return final_text.extract_text()
-
-
