@@ -47,9 +47,12 @@ def sign_up():
 #login page
 @app.route("/login",methods=['GET','POST'])
 def login():
-    user = []
-    User.login(user)
-    return "Logged in"
+    user = request.get_json()
+    try:
+        message = User.login(user)
+        return message
+    except Exception as e:
+        return {"error": str(e)}
 
 @app.route('/inventory', methods=['GET', 'POST'])
 def manage_items():

@@ -1,40 +1,33 @@
-import psycopg2
+from dbconnect import connection
 
 def setup():
-    # database = mydb or postgres
-    # password = test123
-    connection = psycopg2.connect(
-        host="localhost",
-        database="",
-        user="postgres",
-        password=""
-    )
-
-    connection.autocommit = True
-    # create a cursor to execute sql database commands
-    cursor = connection.cursor()
 
     # Check if mydb database exists
-    cursor.execute("SELECT 1 FROM pg_database WHERE datname = 'mydb';")
-    db_exists = cursor.fetchone() is not None
+    # cursor.execute("SELECT 1 FROM pg_database WHERE datname = 'mydb';")
+    # db_exists = cursor.fetchone() is not None
 
-    if not db_exists:
-        # Creating a database
-        cursor.execute('CREATE DATABASE mydb;')
+    # if not db_exists:
+    #     # Creating a database
+    #     cursor.execute('CREATE DATABASE mydb;')
+    cursor = connection.cursor()
+    cursor.execute("""
+                   DROP DATABASE IF EXISTS mydb;
+                   """)
+    cursor.execute("CREATE DATABASE mydb")
 
     # Close connection to default postgres database
-    cursor.close()
-    connection.close()
+    # cursor.close()
+    # connection.close()
 
-    # Connect to mydb database
-    connection = psycopg2.connect(
-        host="localhost",
-        database="mydb",
-        user="postgres",
-        password=""
-    )
-    connection.autocommit = True
-    cursor = connection.cursor()
+    # # Connect to mydb database
+    # connection = psycopg2.connect(
+    #     host="localhost",
+    #     database="mydb",
+    #     user="postgres",
+    #     password=""
+    # )
+    # connection.autocommit = True
+    # cursor = connection.cursor()
 
     # combining the create table command into one string
     create_table = '''
