@@ -62,7 +62,7 @@ class User:
                     SELECT * FROM users
                     WHERE (phone_number = %s AND password = %s)
                 """
-        cursor.execute(query, (user["phone_numer"], user["password"]))
+        cursor.execute(query, (user["phoneNum"], user["password"]))
         new_user = cursor.fetchone()
         connection.commit()
         cursor.close()

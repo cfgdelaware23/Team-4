@@ -9,11 +9,7 @@ def setup():
     # if not db_exists:
     #     # Creating a database
     #     cursor.execute('CREATE DATABASE mydb;')
-    cursor = connection.cursor()
-    cursor.execute("""
-                   DROP DATABASE IF EXISTS mydb;
-                   """)
-    cursor.execute("CREATE DATABASE mydb")
+    
 
     # Close connection to default postgres database
     # cursor.close()
@@ -30,6 +26,17 @@ def setup():
     # cursor = connection.cursor()
 
     # combining the create table command into one string
+    cursor = connection.cursor()
+
+
+    # delete preexisting mydb if it conflicts with current mydb
+    cursor.execute("DROP DATABASE IF EXISTS mydb")
+
+    # Creating a database
+    cursor.execute('CREATE database mydb;')
+
+    # making user table within larer database
+    cursor.execute('DROP TABLE IF EXISTS users;')
     create_table = '''
         CREATE TABLE users(
             id SERIAL NOT NULL,

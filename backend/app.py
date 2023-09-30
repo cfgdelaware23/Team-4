@@ -36,7 +36,6 @@ def sign_up():
             image_filename = save_uploaded_image(image_file)
 
         new_user = User.register(user)
-        print("image filename",image_filename)
         return jsonify({'message': 'Data received successfully', "user": new_user})
 
     except Exception as e:
@@ -52,7 +51,7 @@ def login():
         message = User.login(user)
         return message
     except Exception as e:
-        return {"error": str(e)}
+        return {"error": str(e.with_traceback())}
 
 @app.route('/inventory', methods=['GET', 'POST'])
 def manage_items():
