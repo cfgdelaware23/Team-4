@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 #for postgres
 #import psycopg2
 #from users.donotpush import pass
+# from model.user import User
 
 app = Flask(__name__)
 
