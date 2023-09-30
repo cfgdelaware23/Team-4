@@ -260,7 +260,11 @@ function SignUp() {
     }, [formPage]);
     
     const sendUserToFlask = () => {
-        axios.post('/sign-up', user)
+        axios.post('/sign-up', user, {
+            headers: {
+              'Content-Type': 'application/json', // Set the Content-Type header
+            },
+          })
             .then((response) => {
                 console.log(response.data.message);
             })
@@ -329,7 +333,7 @@ function SignUp() {
                             ) : (
                                 <button 
                                     className= "w-1/3 h-16 bg-ketchup rounded-xl"
-                                    onClick={() => {sendUserToFlask}}
+                                    onClick={sendUserToFlask}
                                 >
                                     <h1 className="text-white text-3xl font-bold">submit</h1>
                                 </button>

@@ -2,8 +2,10 @@ from flask import Flask, render_template, request, jsonify
 #for postgres
 import psycopg2
 #python file which initializes postgresql database
-import init_db
+#import init_db
 from model.user import User
+#used for printing out responses to API
+import json
 
 app = Flask(__name__)
 
@@ -15,9 +17,13 @@ def home():
 #for sign-up page
 @app.route("/sign-up",methods=['GET','POST'])
 def sign_up():
-    user = []
-    User.register(user)
-    return "Enter your information here"
+    user = request.get_json()
+
+    print("Received JSON: %s", json.dumps(user, indent=4))
+    #user = []
+    #User.register(user)
+    return jsonify({'message': 'Data received successfully'})
+    #return "Enter your information here"
 
 #login page
 @app.route("/login",methods=['GET','POST'])
